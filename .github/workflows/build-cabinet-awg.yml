@@ -171,9 +171,9 @@ jobs:
         run: |
           set -xeuo pipefail
           if [[ "${{ matrix.naive }}" == "true" ]]; then
-            TAGS=$(cat release/DEFAULT_BUILD_TAGS)
+            TAGS=$(cat release/hungcabinet/DEFAULT_BUILD_TAGS)
           else
-            TAGS=$(cat release/DEFAULT_BUILD_TAGS_OTHERS)
+            TAGS=$(cat release/hungcabinet/DEFAULT_BUILD_TAGS_OTHERS)
           fi
           if [[ "${{ matrix.variant }}" == "purego" ]]; then
             TAGS="${TAGS},with_purego"
@@ -391,7 +391,7 @@ jobs:
       - name: Build
         if: matrix.naive
         run: |
-          $TAGS = Get-Content release/DEFAULT_BUILD_TAGS_WINDOWS
+          $TAGS = Get-Content release/hungcabinet/DEFAULT_BUILD_TAGS_WINDOWS
           $LDFLAGS_SHARED = Get-Content release/LDFLAGS
           mkdir -p dist
           go build -v -trimpath -o dist/sing-box.exe -tags "$TAGS" `
@@ -405,7 +405,7 @@ jobs:
       - name: Build
         if: ${{ !matrix.naive }}
         run: |
-          $TAGS = Get-Content release/DEFAULT_BUILD_TAGS_OTHERS
+          $TAGS = Get-Content release/hungcabinet/DEFAULT_BUILD_TAGS_OTHERS
           $LDFLAGS_SHARED = Get-Content release/LDFLAGS
           mkdir -p dist
           go build -v -trimpath -o dist/sing-box.exe -tags "$TAGS" `
