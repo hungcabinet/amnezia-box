@@ -298,7 +298,7 @@ fun SettingsScreen(navController: NavController) {
                         .clickable {
                             val intent = android.content.Intent(android.content.Intent.ACTION_VIEW)
                             intent.data =
-                                android.net.Uri.parse("https://github.com/hungcabinet/amnezia-box")
+                                android.net.Uri.parse("https://github.com/hungcabinet/hc-box")
                             context.startActivity(intent)
                         },
                     colors =
