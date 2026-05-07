@@ -10,28 +10,7 @@ This fork is made for personal purposes only! It just adds support for some addi
 
 - Full sing-box functionality
 - AmneziaWG protocol support via [amneziawg-go](https://github.com/amnezia-vpn/amneziawg-go)
-- AWG 2.0 features: H1-H4 ranges, S3/S4 padding, I1-I5 obfuscation chains
-- Proper FakeIP and DNS routing support for AWG endpoint
-
-## AWG Endpoint DNS Resolution Fix
-
-The AWG endpoint implementation includes a fix for proper domain name resolution when used with sing-box's FakeIP or standard DNS routing.
-
-### Problem Solved
-
-The original AWG endpoint did not properly handle domain resolution:
-- FakeIP addresses (198.18.x.x) were not being resolved back to real IPs
-- Domain resolution failed inside netstack mode
-- Clash API delay tests returned errors
-
-### Solution
-
-AWG endpoint now overrides `DialContext()` and `ListenPacket()` methods to:
-1. Check if destination is a domain (FQDN)
-2. Use `dnsRouter.Lookup()` to resolve domains to real IPs
-3. Connect through the tunnel using resolved addresses
-
-This aligns AWG endpoint behavior with the standard WireGuard endpoint implementation.
+- Mieru protocol support via [mieru](https://github.com/enfein/mieru)
 
 ## Build
 

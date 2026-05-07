@@ -32,6 +32,7 @@ const (
 	TypeOCM          = "ocm"
 	TypeOOMKiller    = "oom-killer"
 	TypeAwg          = "awg"
+	TypeMieru        = "mieru"
 )
 
 const (
@@ -95,6 +96,8 @@ func ProxyDisplayName(proxyType string) string {
 		return "URLTest"
 	case TypeAwg:
 		return "Awg"
+	case TypeMieru:
+		return "Mieru"
 	default:
 		return "Unknown"
 	}
